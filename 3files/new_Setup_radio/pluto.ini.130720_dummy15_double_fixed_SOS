@@ -1,0 +1,81 @@
+[Grid]
+
+X1-grid    1    0.0    60    u   120.0
+X2-grid    1    0.0   100    u   200.0
+X3-grid    1    0.0    50    u   100.0
+
+[Chombo Refinement]
+ 
+Levels           4
+Ref_ratio        2 2 2 2 2
+Regrid_interval  2 2 2 2
+Refine_thresh    0.3
+Tag_buffer_size  3
+Block_factor     4
+Max_grid_size    32
+Fill_ratio       0.75
+ 
+[Time]
+
+CFL              0.20
+CFL_max_var      1.1
+tstop            842.0
+first_dt         1.e-4
+
+[Solver]
+
+Solver         hlld
+
+[Boundary]
+
+X1-beg        outflow 
+X1-end        outflow
+X2-beg        outflow
+X2-end        outflow
+X3-beg        outflow
+X3-end        outflow
+
+[Uniform Grid Output]
+
+uservar 20 T vortz dummy1 dummy2 dummy3 dummy4 dummy5 dummy6 dummy7 dummy8 dummy9 dummy10 dummy11 dummy12 dummy13 dummy14              \
+ dummy15 dummy16 dummy17 dummy18 
+;dummy19 
+
+;130720 SOS dummy15 appeared twice,this messed up things with data processing well into nemiss later on! SOS FIXED THAT! backlash AFTER A LONGISH GAP!!
+
+;130620 SOS CHECK VALUES as assigned in userdefoutput. SOS userdef in file folder OVERRIDES source folder's default userdef output.c SOS!
+
+;SOS 130620 This seems to do the trick, add dummy15 twice in both lines, end of 1st line and also at beginning of 2nd line!
+;uservar 21 T vortz dummy1 dummy2 dummy3 dummy4 dummy5 dummy6 dummy7 dummy8 dummy9 dummy10 dummy11 dummy12 dummy13 dummy14 dummy15 
+;  dummy16 dummy17 dummy18 dummy19
+
+;130620 THIS ALMOST WORKS,ONLY 15 is missing! 
+; uservar  21 T vortz dummy1 dummy2 dummy3 dummy4 dummy5 dummy6 dummy7 dummy8 dummy9 dummy10 dummy11 dummy12 dummy13 dummy14 dummy15 
+; dummy16 dummy17 dummy18 dummy19 
+
+  
+
+dbl       -1.0  -1   multiple_files
+flt       25.0  -1   multiple_files
+vtk       25.0  -1   multiple_files
+tab       -1.0  -1   
+ppm       20.0  -1   
+png       -1.0  -1   
+log        1 
+analysis  -1.0  -1 
+ 
+[Chombo HDF5 output]
+ 
+Checkpoint_interval  -1.0  0
+Plot_interval         1.0  0
+ 
+[Parameters]
+
+CS_WIND              0.03  
+RHO_AMB              1.0  
+CS_AMB               0.004  
+V_CSM                0.0  
+RHO_IN               10000000000.0  
+BETA                 0.866  
+BM                   10000.10  
+RM                   0.37  

@@ -1,0 +1,140 @@
+datapath (filesystem location of both hydro data and rlos)
+'X:\shared\torblob18dummies'
+conditional_stop (0=NO, 1=YES: use stops along the execution line)
+0
+debug_comments (0=NO, 1=YES: show debug interim results during execution)  
+0.0
+sfactor_external (pload's shrink factor)
+1.0
+speedtweakfactor_external (ts speadtweak factor)
+1.0
+clight_override_external (0=NO, 1=YES: override clight using clight preset value)
+0.0
+clight_preset_external (clight override factor)
+201.2
+jet_norm_velocity_external
+0.566
+shotmin_external
+1
+shotmax_external
+45
+phi2_external no D at end for mathematica usage we cut it!
+0.0000005
+phi1_external 10 degrees=0.1745,  30 degrees=0.52365 60 degrees=1.0471975512
+0.3471975512
+freqshiftchoice_external
+1.0
+dopplerchoice_external
+1.0
+alphaindex_external
+2.0
+nobs_external
+8000000000.0
+NLONG_external
+150.0
+plutolength_external
+10000000000
+plutospeed_external
+30000000000
+plutodensity_external
+0.00000000000000000000000167
+plutocelllength_external
+10000000000
+LOOP_LENGTH_FACTOR_FOR_TIMING_RELATED_TESTS=text_array(44)/1.0D next factor reduces overall LOS length, back in time as it progresses, in order to allow for smaller time spans to be used. LOSES FAR END OF DOMAIN THOUGH, only for studiyng near effects, such as the perp. beam test!
+0.930
+show_loops_switch=text_array(46)/1.0D 250419 show_loops_switch is a switch that turns on ONLY showing the loop indices. It works best when rest of comments are turned OFF, else it is LOST in the clutter, thus rendered useless.
+1.0
+show_loops_switch__screen_boundaries=text_array(48)/1.0D another switch to lomit detail here if needed
+0.0
+zigzag_factor=text_array(50)/1.0D zigzagfactor multiplies endlosloop which is the diagonal length of the domain. 210419 reason is that due to zig zag, even though length is e.g. 70, counter reaches 120. And zig zag affects counter, not length! This wan not set up correctly back then! Still, it was progress. 210419 HEAVILY affects execution time! MOVE TO RLOSPARAMS TXT FILE!  210419 optimal value is where it barely reaches end of domain now it is at 1.4,, else LOS ends prematurely. If it reaches ends of domain, it BREAKS anyway. 
+1.4
+focused_beam_switch=text_array(52)/1.0D 180419 ALTERED IN imaging_loop_boundaries, according to imaging geometry selector (selected geometry)! Switch turns on focused beam. Else we should eventually get the radiograph, with parallel los's. Under construction!
+0.0
+focal_point_x=text_array(54)/1.0D focal point's x coordinate, zero for now! but may become neg? to allow for imaging whole grid!
+-300.0
+slice_x_axis_percentage=text_array(56)/1.0D SOS this is x axis percentage of slice x coord.
+0.80
+slice_y_lower_percentage=text_array(58)/1.0D
+0.15
+slice_z_lower_percentage=text_array(60)/1.0D	
+0.15
+slice_y_upper_percentage=text_array(62)/1.0D
+0.15
+slice_z_upper_percentage=text_array(64)/1.0D
+0.15   
+pload_float_factor=text_array(66)/1.0D SELECTS FLOAT INSTEAD OF DOUBLE Binary DATA
+1.0
+ERROR_STAGNANT_LOS=0.0 next we zero the detector of stagnant los events along a los! affects
+0.0
+rho_indicator_Value is painting LOs voxels with a value, within a 3D indicator array
+10000000000
+use_huge_indicator_array=text_array(72)/1.0D this delares a huge indocator array for all LOSes!
+0.0
+focal_point_y_axis_percentage axis portion where fpoint is located along y
+0.500
+focal_point_z_axis_percentage axis portion where fpoint is located along z
+0.500
+imaging_geometry_selector (**SUPER SOS**) takes values 1 to 4, 1 is radiograph_xz_fun, 2 is radiograph_yz_fun, 3 is camera_obscura_xz_fun, 4 is camera_obscura_yz_fun
+4
+steady_state_switch SELECTS THE STEADY STATE = ON AND employs the DENSITY of the cone-like model instead of the hydrocode density. Can be either 1 (on) or zero (off)
+0.0
+rod_test_switch, SELECTS THE rod test = ON AND employs the DENSITY of the cone-like model instead of the hydrocode density.
+0.0
+incoming_perpendicular_rod_test_switch selects incoming perpendicular_rod_test, aka relativistic test of approaching rod, wider at centre, thinner at edges 230519
+0.0
+incoming_planar_rod_test_switch, ruler thingy do august 2019, DO NOT SET BOTH TO ONE SOS MAKE IT FOOL PROOF SOON ENOUGH!!! SOS!!! 150519
+0.0
+halfwidth: halflength of rod 300319 
+2
+characteristic_value_unique: unique value to set rod values equal to, in order to select them afterwards if equals that! 300319
+1.768657846578D
+ujet_steady_state: here define a steady-state jet velocity along y, the jet axis. no other velocity component is present is case the steady-state is ON. 200319 
+0.9
+lossolidangle is the los solid angle, see code for details where it is used! Meant for radiograph version, must check for cam_obsc! 150619  
+0.000001
+LOOP_LENGTH_FACTOR_FOR_TIMING_RELATED_TESTS factor reduces overall LOS length, back in time as it progresses, in order to allow for smaller time spans to be used. LOSES FAR END OF DOMAIN THOUGH, only for studiyng near effects, such as the perp. beam test! 080519 
+0.730
+backwards_in_time SOS crucial parameter, when on (1) it draws the LOS back in time, from time t_picked.Currently, we have tpicked=t(shotmax), but it could be also set earlier if needed.. Else, fward, from t(shotmin)
+1.0
+SOS set to 1.0, not zero! focal_pointXZ_y (=text_array(100)/1.0D) imag case 3 sets this to ONE INST OF ZERO if zero,allows moar los to start! y location along y axis of focal point for XZ version. Zero for now! but may become neg? to allow for imaging whole grid!
+-30.0
+sliceXZ_y_axis_percentage This is the percentage of the y axis length where the XZ version's imaging screen (slice) is located. 
+0.20
+focal_pointXZ_x_axis_percentage x-axis portion where fpointXZ is located along x
+0.5
+focal_pointXZ_z_axis_percentage z-axis portion where fpointXZ is located along z
+0.5
+sliceXZ_x_lower_percentage
+0.15
+sliceXZ_z_lower_percentage
+0.15
+sliceXZ_x_upper_percentage
+0.15
+sliceXZ_z_upper_percentage
+0.15
+path_algo_set which pathfinder algo set to employ (0 is the default case, 1 is the old ones for case4, moar may follow!)
+0
+reverse_los_switch activates reverse calc along a LOS, switable to use when absorption and backwards in time co-exist in a simulation (i.e. cam obsc and absorption, imaging cases 3 or 4 with absorption)
+1
+spectrum_direct_switch this turns on the use of the spectral formula, IF FS IS ON. 0 is IMPLIED SPECTRUM, 1 is s propto nu^(-alphaindex), 2 is left for future 'case selection' use, etc
+0.0
+kappa_spectr
+1.0
+kappa_spectr2 16 zeros default value. A constant used in the 108 direct spectrum SOS remember to check how many Dfactors should be in the direct spectra implementation
+10000000000000000.0
+debug_spectra_switch This allows, through the creation of additional emiss_4d arrays, to debug images based on different spectral implementations.
+1.0
+pion_emissivity_switch Pion emissivity switch: assigns emission to a precursor quantity that is reasonably proportional to neutr. emiss AND also much FASTER to calc for nemiss_pload4d (read already calced from a binary file, pre-calced by nemiss_pload4d, for GIVEN angles, etc settings)!
+0.0
+neutrino_emissivity_switch IF ON, OVERWRITES PION ONE FROM ABOVE! Neutrino emissivity switch: assigns emission to the real thing. Harder to calc in nemiss_pload (read already calced from a binary file, pre-calced by nemiss_pload4d, for GIVEN angles, etc settings)!
+1.0
+synchrotron_emissivity_switch IF ON OVERWRITES ABOVE assignements and thus does synchotron calculatrion SOS WTF is theta angle? it is (los,B), aka losu-style. Now calced it rlos2
+0.0
+kappa_value_power_law Portion of fast neutrons, as a count, not as energy total, of the slow protons in the jet cell. It multiplies kabs from pachz, in synchrotron emission abs calcs
+0.001
+u_fast_proton_lower_threshold_external lower threshold of relativistic speed above which we have full effect of fast proton distro 
+0.1
+z_fast_proton_threshold_index_external index for function f(u)=1.0, u> above threshold, or f(u)=abs(u/u_threshold)^z, if u below u_threshold
+1.0
+neutrino_energy_selector active when above neutrino selector is valid, ranges from 1 to 11, covers the spectrum over dummies from 3 to 15
+1.0
