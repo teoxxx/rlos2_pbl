@@ -1,0 +1,104 @@
+8rho density in protons per cm3 ref value: 210000000000.0
+210000000000.0
+magnetic field, in gauss perhaps, ref value fffbscalar = 1.0 
+1.0
+uxx coord ref value -0.378
+-0.378
+uyy coord ref value 0.448 
+0.548 
+uzz coord ref value 0.0124
+0.124 
+Ep,eppp energy in GeV ((*0110 SOS must multiply in code the following with GeV, else chaos!*):) ref value 400.0
+400.0
+Epmax, max proton energy in GeV (all GeV quantities are auto converted from CGS to GeV within code:) ref value in GeV: 3400000.0
+3400000.0
+Eth ref value 1.22 GeV sos all Gev stuff MUST BE MULTIPLIED by GeV in-code, AFTER being read from here! 
+1.22
+protonindex1 (alpha) The proton power law spectral index. SOS this defaults to two (2.0). But can be something around that! OLD CAPTION: fast protons' spectral index from paper Reynoso et al. 08*)prosoxi alpha elliniko einai, alliotiko apo to a aggliko
+2.0
+K1 (ref)= 1.2 10^7. The following constant shall emerge from normalization. Now we give it an arbitrary value, one that looks nice
+12000000.0
+(çslash = 0.0015*67;) etaslash is another normalisation constant in the args08 paper use1 to join the results of the gamma - ray formulae below and above 100 Gev.*)
+ 0.1005
+(Subscript[K, ð] = 0.17;)(*Constant from Kelner et al. 2006 and Args 2008.*) 
+0.17
+(qqq = 0.01;) 
+0.01
+(xxmax = 1.;)  
+1.0
+Epion/Eproton*)Epionpercentage = 0.9;(*PROSOXI WE BASE THE CALCULATION OF GAMMAp on setting the ratio \
+0.9
+Subscript[K, pp] = 0.5;(*inelasticity coefficient*)
+0.5
+Subscript[z, j] = 1000000000;(*zj should be given in cm here, i.e. CGS*)
+100000000000.0
+DIVISOR GIVEN HERE. ndensefast portion of slow proton density simpler than power law. Only used outside of power law operations. Power law proton energy distro is seemingly more realoistic!
+1000000.0
+jet nozzle beam velocity, independent of local variations, manually introduced per star system, must match PLUTO sim nozzle speed!
+0.8
+reversexzaxesrlosnemiss = 0.0;  CAREFUL reverse z and z axes here vs rlos! idl and mathematica seem to put nested loops in the opposite order!
+0.0
+commentsprint  ;1.0 prints moar comments, else does not!
+0.0
+threshold1: 0.815 limiting case! It is the coslosu above which the calc takes place! This selects the cells whose velocity is most ALIGNED with the cell's LOS, not necessarily the fastest velocities!
+0.08
+velocityfilter minimum total (length of 3D vector) velocity abs. value, above which calc takes place. Just another threshlod, this one for the length of the velocity.
+0.2
+reversexzaxesthreshold  this one reverses x,z , but in relation to the threshold calc. SHOULD BE THE SAME AS THE ONE ABOVE, yet remains to be seen! For now, we keep it separate, but DO PUT THEM THE SAME IN MOST CASES!
+0.0
+calcuanal: When equal to 1.0, it enables calculation of uanal (pion intensity, i.e. precursor quantity. 10-20 times faster than, and loosely proportional to, qneutrino, good for a quick estimate calc!)
+1.0
+calcqneutrino: Enables calc of the real thingy! Bit slower, this one!
+1.0
+writebackcoslosutodummy1 enable coslosu writeback to dummy1
+1.0
+writebackuanaltodummy2 uanal writeback to dummy2, always subject to threshold1 and velocity filter of course (most elements may be zero)
+1.0
+writebackqneutrinotodummy3 qneutrino writeback to dummy3, always subject to threshold1 and velocity filter of course (most elements may be zero)
+1.0
+writebacksomethingtovortz for this one you need to manually edit the code to add what to be written to vortz!
+1.0
+calcenergy in GeV
+1000
+commentsfew Prints a minimal set of comments, very useful. Only turn off for production runs, etc.
+0.0
+somanyouterlooppoints Every how many points of the outer loop, i.e. ii, shall we print out the result of the main calc Table loop?
+1.0
+calcqneutrinospectralarray SOS only activate this if 3-18 below is set to 18! Parameter to control wether we do the 15 (or about maxdummy in general) freqs spectral calc
+1.0
+commentaryforcalcqneutrinospectralarray SOS only activate this if 3-18 below is set to 18!  Parameter to control printing commentary within spectral loop for each filtered point!
+0.0
+maxdummy MD=('3-18' below) minus 3! WORKS for default of 15. SOS SET to zero if 3-18 is 3. MD=('3-18')-3. SOS MUST BE INTEGER NOT REAL, ELSE IT CRASHES THE lemission spectrale array definition SOS INTEGER SOS. THIS is the number of dummies employed, to be subtrackted, IF ACTIVE, from the nvar total
+15.0
+PS2001selector 
+3.0
+maxtimelimitforneutrinocalcinsec  This sets max limit for each point' s neutrino calc
+100.0
+bfactorcompilec if ON (1.0) then qneutrino is COMPILED WITH C.Else (OFF, 0.0) then is is merely compiled, non-C though!
+1.0
+threeeighteenfactor (3-18): IN CONNECTION TO calcqneutrinospectralarray,commentaryforcalcqneutrinospectralarray ABOVE! If set to three, then 3 dummies only (i.e. 4D calc, single energy calculation). If set to  18, then 5D calc, one spectrum per XYZ-T point!
+18.0
+indexxx1 The logarithmic index of the log spectrum exponential growth of energy. 0.7 is the default! SOS avoid resulting to exact E values, as it tends to slow down things, a LOT!
+0.7
+printtestresults Param to allow doing a series of test calcs for verification of the n-emission function. NEar the beginning of nemiss.
+0.0
+plottestplots Param to allow plotting of test results for the n-emission functions. Near the start of nemiss. 
+0.0
+printloopcalcs PAram to control wether prolonged loop calcs take place early on,before main loop , of uanalyt and of qneutrino!
+0.0
+ct1param normalization constant, the one that counts!
+1.0
+protonexpo Param to control wether we employ expo cut off for proton p-law distro. Additional term that is, after E^(-a).
+0.0
+spacetest SOS CALC KILLSWITH! Param to calc null result for filtered cells, in order to find out which those cells are!
+0.0
+spacetestvalue Test value for above result: I.e. a null calc result. 
+123456789
+muteall SOS when on, this param mutes even the simple, most useful comments. Do use it, from now on, to conditionally mute even the most useful comments! (good for null calc test runs, prevent monitor from overflowing with results and stalling the run!)
+1.0
+
+
+
+
+
+
