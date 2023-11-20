@@ -15,9 +15,9 @@ clight_preset_external (clight override factor)
 jet_norm_velocity_external
 0.566
 shotmin_external
-60 
+1
 shotmax_external
-105
+45
 phi2_external no D at end for mathematica usage we cut it!
 0.0000005
 phi1_external 10 degrees=0.1745,  30 degrees=0.52365 60 degrees=1.0471975512
@@ -127,9 +127,9 @@ debug_spectra_switch This allows, through the creation of additional emiss_4d ar
 pion_emissivity_switch Pion emissivity switch: assigns emission to a precursor quantity that is reasonably proportional to neutr. emiss AND also much FASTER to calc for nemiss_pload4d (read already calced from a binary file, pre-calced by nemiss_pload4d, for GIVEN angles, etc settings)!
 0.0
 neutrino_emissivity_switch IF ON, OVERWRITES PION ONE FROM ABOVE! Neutrino emissivity switch: assigns emission to the real thing. Harder to calc in nemiss_pload (read already calced from a binary file, pre-calced by nemiss_pload4d, for GIVEN angles, etc settings)!
-0.0
-synchrotron_emissivity_switch IF ON OVERWRITES ABOVE assignements and thus does synchotron calculatrion SOS WTF is theta angle? it is (los,B), aka losu-style. Now calced it rlos2
 1.0
+synchrotron_emissivity_switch IF ON OVERWRITES ABOVE assignements and thus does synchotron calculatrion SOS WTF is theta angle? it is (los,B), aka losu-style. Now calced it rlos2
+0.0
 kappa_value_power_law Portion of fast neutrons, as a count, not as energy total, of the slow protons in the jet cell. It multiplies kabs from pachz, in synchrotron emission abs calcs
 0.001
 u_fast_proton_lower_threshold_external lower threshold of relativistic speed above which we have full effect of fast proton distro 
@@ -137,4 +137,4 @@ u_fast_proton_lower_threshold_external lower threshold of relativistic speed abo
 z_fast_proton_threshold_index_external index for function f(u)=1.0, u> above threshold, or f(u)=abs(u/u_threshold)^z, if u below u_threshold
 1.0
 neutrino_energy_selector active when above neutrino selector is valid, ranges from 1 to 11, covers the spectrum over dummies from 3 to 15
-0.0
+1.0
